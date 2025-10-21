@@ -1,2 +1,29 @@
 @import 'tailwindcss';
+
 @plugin "daisyui";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.backgroundBg {
+  background: linear-gradient(
+    188deg,
+    rgba(227, 239, 38, 1) 0%,
+    rgba(7, 102, 83, 1) 50%,
+    rgba(12, 52, 44, 1) 100%
+  );
+}
+
+.textGradient {
+  background: linear-gradient(
+    188deg,
+    rgba(227, 239, 38, 1) 0%,
+    rgba(7, 102, 83, 1) 50%,
+    rgba(12, 52, 44, 1) 100%
+  );
+  color: transparent;
+  background-clip: text;
+}
+a.active {
+  color: #16a34a;
+  font-weight: bold;
+}
