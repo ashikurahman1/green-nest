@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router';
 import TopRatedPlants from '../components/TopRatedPlants';
 import PlantCareTips from '../components/PlantCareTips';
 import GreenExperts from '../components/GreenExperts';
+import EcoDecor from '../components/EcoDecor';
 
 const HomeLayout = () => {
   const plants = useLoaderData();
@@ -17,6 +18,7 @@ const HomeLayout = () => {
       <TopRatedPlants toprated={toprated} />
       <PlantCareTips />
       <GreenExperts />
+      <EcoDecor />
     </div>
   );
 };
