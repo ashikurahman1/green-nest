@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import { useLoaderData } from 'react-router';
 import TopRatedPlants from '../components/TopRatedPlants';
 import PlantCareTips from '../components/PlantCareTips';
+import GreenExperts from '../components/GreenExperts';
 
 const HomeLayout = () => {
   const plants = useLoaderData();
@@ -15,6 +16,7 @@ const HomeLayout = () => {
       <Hero />
       <TopRatedPlants toprated={toprated} />
       <PlantCareTips />
+      <GreenExperts />
     </div>
   );
 };

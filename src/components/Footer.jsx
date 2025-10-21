@@ -9,9 +9,12 @@ const Footer = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
               <div className="mb-10 w-full">
-                <Link to="/" className="text-xl flex items-center gap-2 mb-5">
-                  <img src={Logo} alt="" className="w-10 hidden md:flex" />
-                  <span className="text-2xl lg:text-3xl font-bold ">
+                <Link
+                  to="/"
+                  className="text-xl text-green-700 lg:text-white flex items-center gap-2 mb-5"
+                >
+                  <img src={Logo} alt="" className="w-10 hidden lg:flex" />
+                  <span className="text-3xl font-bold ">
                     Green<span className="">Nest</span>
                   </span>
                 </Link>
