@@ -27,3 +27,12 @@ a.active {
   color: #16a34a;
   font-weight: bold;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #16a34a !important;
+}
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  background-color: #16a34a !important;
+}
