@@ -1,9 +1,13 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
 import PlantCard from '../components/PlantCard';
+import useData from '../hooks/useData';
+import Loader from '../components/Loader/Loader';
 
 const Plants = () => {
-  const plants = useLoaderData();
+  const { plants, loading } = useData();
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <section className="bg-gray-50">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const PlantCard = ({ plant }) => {
   return (
@@ -19,9 +20,11 @@ const PlantCard = ({ plant }) => {
           {'★'.repeat(Math.round(plant.rating))}{' '}
           <span className="text-gray-600 ">({plant?.rating})</span>
         </p>
-        <button className="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition cursor-pointer">
-          View Details
-        </button>
+        <Link to={`/plant/${plant.plantId}`}>
+          <button className="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition cursor-pointer">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
