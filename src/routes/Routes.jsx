@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import Root from '../root/Root';
 import HomeLayout from '../pages/HomeLayout';
+import Plants from '../pages/Plants';
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +19,8 @@ export const router = createBrowserRouter([
       },
       {
         path: '/plants',
-        element: <p>I am Plants</p>,
+        element: <Plants />,
+        loader: () => fetch('/data/plants.json'),
       },
       {
         path: '/profile',
