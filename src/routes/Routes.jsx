@@ -2,9 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import Root from '../root/Root';
 import HomeLayout from '../pages/HomeLayout';
 import Plants from '../pages/Plants';
-
 import PlantDetails from '../pages/PlantDetails';
-import Loader from '../components/Loader/Loader';
 import AuthLayout from '../pages/AuthLayout';
 import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
@@ -15,7 +13,6 @@ export const router = createBrowserRouter([
   {
     path: '/',
     Component: Root,
-    loader: Loader,
     children: [
       {
         index: true,

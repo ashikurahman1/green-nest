@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from 'react-router';
 import Logo from '../assets/logo.png';
 import { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const menus = [
   { name: 'Home', path: '/', id: 1 },
@@ -24,12 +25,13 @@ const navLink = (
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { userLogout, user } = use(AuthContext);
+  const { user, userLogout, loading } = use(AuthContext);
 
   const handleLogout = () => {
     userLogout()
-      .then(result => {
+      .then(() => {
         navigate('/');
+        toast.error('Logout Success');
       })
       .catch(err => {
         console.error(err);
@@ -76,12 +78,17 @@ const Navbar = () => {
           <ul className="menu menu-horizontal space-x-5">{navLink}</ul>
         </div>
         <div className="navbar-end">
-          {user ? (
+          {loading ? (
+            <div className="px-4 py-2">Loading...</div>
+          ) : user ? (
             <ul className="menu menu-horizontal ">
               <li>
                 <details className="relative  bg-transparent ">
                   <summary>
-                    <img src={user.photoURL} className="w-8 rounded-full" />
+                    <img
+                      src={user.photoURL}
+                      className="w-10 h-10 rounded-full"
+                    />
                   </summary>
                   <ul className="p-4 space-y-3 absolute  right-0 min-w-[200px] z-50">
                     <p
@@ -91,10 +98,12 @@ const Navbar = () => {
                       Welcome!{' '}
                     </p>
                     <li className="text-lg font-semibold">
-                      {user.displayName.split(' ').slice(0, 2).join(' ')}
+                      {user.displayName
+                        ? user.displayName.split(' ').slice(0, 2).join(' ')
+                        : 'User'}
                     </li>
                     <button
-                      className="mt-5 px-4 py-2 bg-red-500 rounded text-white font-semibold cursor-pointer w-full"
+                      className="mt-5 px-4 py-2 bg-green-600 rounded text-white font-semibold cursor-pointer w-full"
                       onClick={handleLogout}
                     >
                       Logout

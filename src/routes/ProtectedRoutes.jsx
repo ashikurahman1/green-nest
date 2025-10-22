@@ -3,13 +3,16 @@ import { Navigate, useLocation } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
 const ProtectedRoutes = ({ children }) => {
-  const { user } = use(AuthContext);
+  const { user, loading } = use(AuthContext);
   const location = useLocation();
 
-  if (user) {
-    return children;
+  if (loading) {
+    return <span className="text-center py-10">Loading...</span>;
   }
-  return <Navigate state={location?.pathname} to="/auth/login" />;
+  if (!user) {
+    return <Navigate to="/auth/login" state={location?.pathname} replace />;
+  }
+  return children;
 };
 
 export default ProtectedRoutes;

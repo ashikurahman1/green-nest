@@ -9,7 +9,7 @@ const PlantDetails = () => {
   const { plants, loading } = useData();
   const currentPlant = plants.find(plant => plant.plantId == id);
   if (loading) {
-    return <Loader />;
+    return <p>Data Loading....</p>;
   }
   const {
     image,

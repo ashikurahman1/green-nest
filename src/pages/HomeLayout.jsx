@@ -9,10 +9,10 @@ import useData from '../hooks/useData';
 import Loader from '../components/Loader/Loader';
 
 const HomeLayout = () => {
-  const { plants, loading } = useData();
-  if (loading) {
-    return <Loader />;
-  }
+  const { plants } = useData();
+  // if (loading) {
+  //   return <Loader />;
+  // }
   const topRated = plants.slice(0, 8);
 
   return (

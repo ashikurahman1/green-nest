@@ -1,12 +1,15 @@
 import React, { use, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa6';
 import { AuthContext } from '../../context/AuthContext';
+import { FcGoogle } from 'react-icons/fc';
+import Swal from 'sweetalert2';
 const Register = () => {
   const { createUser, setUser, loginGoogle, updateUser } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleUserRegister = e => {
     e.preventDefault();
@@ -22,6 +25,12 @@ const Register = () => {
           .then(() => {
             setUser({ ...user, displayName: fullName, photoURL: photoUrl });
             navigate('/auth/login');
+            Swal.fire({
+              title: 'Account created successfully. Please login!',
+              icon: 'success',
+              draggable: true,
+              confirmButtonColor: '#16a34a',
+            });
           })
           .catch(err => console.error(err.message));
       })
@@ -30,8 +39,8 @@ const Register = () => {
 
   const handleGoogleLogin = () => {
     loginGoogle()
-      .then(result => {
-        navigate('/profile');
+      .then(() => {
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(err => {
         console.error(err);
@@ -110,15 +119,10 @@ const Register = () => {
             </span>
           </div>
 
-          {/* Forgot Password */}
-          <div className="text-green-600 hover:underline cursor-pointer">
-            Forgot password?
-          </div>
-
           {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition font-semibold cursor-pointer"
+            className="mt-5 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition font-semibold cursor-pointer"
           >
             Sign up
           </button>
@@ -132,7 +136,7 @@ const Register = () => {
             onClick={handleGoogleLogin}
             className="btn btn-outline w-full flex items-center justify-center gap-2"
           >
-            <FaGoogle className="text-red-500" />
+            <FcGoogle size={25} />
             Continue with Google
           </button>
         </form>
@@ -144,9 +148,14 @@ const Register = () => {
           </Link>
         </p>
 
-        <button className="btn btn-neutral mt-8" onClick={() => navigate('/')}>
-          <FaArrowCircleLeft /> <span>Go Home</span>
-        </button>
+        <div className="flex flex-col items-center justify-center">
+          <button
+            className="btn btn-neutral mt-8"
+            onClick={() => navigate('/')}
+          >
+            <FaArrowCircleLeft /> <span>Go Home</span>
+          </button>
+        </div>
       </div>
     </div>
   );

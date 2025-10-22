@@ -1,22 +1,32 @@
-import React, { use, useState } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { FaArrowCircleLeft } from 'react-icons/fa';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa6';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
-  const { loginUser, loginGoogle } = use(AuthContext);
+  const emailRef = useRef(null);
+
+  const { loginUser, loginGoogle, passwordForget } = use(AuthContext);
+
   const handleLoginWithEmail = e => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
     loginUser(email, password)
-      .then(result => {
+      .then(() => {
+        Swal.fire({
+          title: 'Login Success!',
+          icon: 'success',
+          draggable: true,
+          confirmButtonColor: '#16a34a',
+        });
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(err => {
@@ -26,11 +36,48 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     loginGoogle()
-      .then(result => {
+      .then(() => {
+        Swal.fire({
+          title: 'Login Success!',
+          icon: 'success',
+          draggable: true,
+          confirmButtonColor: '#16a34a',
+        });
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(err => {
         console.error(err);
+      });
+  };
+
+  const handleResetPassword = () => {
+    const email = emailRef.current?.value;
+
+    if (!email) {
+      return Swal.fire({
+        title: 'No email',
+        text: 'Please enter your email above the receive a reset link',
+        icon: 'warning',
+        confirmButtonColor: 'red',
+      });
+    }
+
+    passwordForget(email)
+      .then(() => {
+        Swal.fire({
+          title: 'Reset Email Sent',
+          text: `A password reset link has been sent to ${email}. Check your inbox (and spam).`,
+          icon: 'success',
+          confirmButtonColor: '#16a34a',
+        });
+      })
+      .catch(err => {
+        console.error(err.message);
+        Swal.fire({
+          title: 'Error',
+          text: err.message || 'Failed to send reset email',
+          icon: 'error',
+        });
       });
   };
   return (
@@ -49,6 +96,7 @@ const Login = () => {
               Email:
             </label>
             <input
+              ref={emailRef}
               type="email"
               name="email"
               id="email"
@@ -80,11 +128,14 @@ const Login = () => {
           </div>
 
           {/* Forgot Password */}
-          <div className="text-green-600 hover:underline cursor-pointer">
+          <button
+            type="button"
+            onClick={handleResetPassword}
+            className="text-green-600 hover:underline cursor-pointer text-left"
+          >
             Forgot password?
-          </div>
+          </button>
 
-          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition font-semibold cursor-pointer"
@@ -92,16 +143,14 @@ const Login = () => {
             Login
           </button>
 
-          {/* Divider */}
           <div className="divider">OR</div>
 
-          {/* Google Login */}
           <button
             type="button"
             onClick={handleGoogleLogin}
             className="btn btn-outline w-full flex items-center justify-center gap-2"
           >
-            <FaGoogle className="text-red-500" />
+            <FcGoogle size={25} />
             Continue with Google
           </button>
         </form>
@@ -113,9 +162,14 @@ const Login = () => {
           </Link>
         </p>
 
-        <button className="btn btn-neutral mt-8" onClick={() => navigate('/')}>
-          <FaArrowCircleLeft /> <span>Go Home</span>
-        </button>
+        <div className="flex flex-col items-center justify-center">
+          <button
+            className="btn btn-neutral mt-8"
+            onClick={() => navigate('/')}
+          >
+            <FaArrowCircleLeft /> <span>Go Home</span>
+          </button>
+        </div>
       </div>
     </div>
   );

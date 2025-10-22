@@ -1,10 +1,13 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { useLocation } from 'react-router';
+import Loader from '../components/Loader/Loader';
 
 const MyProfile = () => {
-  const { user, updateUser, setUser } = use(AuthContext);
+  const { user, updateUser, setUser, loading } = use(AuthContext);
 
+  if (loading) {
+    return <Loader />;
+  }
   const updateProfile = e => {
     e.preventDefault();
 
@@ -12,7 +15,7 @@ const MyProfile = () => {
     const photoURL = e.target.photoUrl.value;
 
     updateUser({ displayName, photoURL })
-      .then(result => {
+      .then(() => {
         setUser({ ...user, displayName, photoURL });
       })
       .catch(err => {

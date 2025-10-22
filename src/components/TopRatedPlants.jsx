@@ -1,8 +1,13 @@
 import React from 'react';
 import PlantCard from './PlantCard';
 import { Link } from 'react-router';
+import useData from '../hooks/useData';
 
 const TopRatedPlants = ({ topRated }) => {
+  const { loading } = useData();
+  if (loading) {
+    return <span>Loading Data...</span>;
+  }
   return (
     <section className="pt-20 px-4 bg-gray-50">
       <div className="w-full lg:w-10/12 mx-auto">

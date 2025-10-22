@@ -3,7 +3,7 @@ import { RotatingLines } from 'react-loader-spinner';
 
 const Loader = () => {
   return (
-    <div className="flex justify-center py-20">
+    <div className="flex flex-col min-h-screen justify-center items-center py-20">
       <RotatingLines
         strokeColor="green"
         strokeWidth="5"
