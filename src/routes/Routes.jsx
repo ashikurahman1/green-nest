@@ -5,6 +5,9 @@ import Plants from '../pages/Plants';
 
 import PlantDetails from '../pages/PlantDetails';
 import Loader from '../components/Loader/Loader';
+import AuthLayout from '../pages/AuthLayout';
+import Login from '../components/Login/Login';
+import Register from '../components/Register/Register';
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +34,20 @@ export const router = createBrowserRouter([
       {
         path: '/profile',
         element: <p>I am Profile</p>,
+      },
+    ],
+  },
+  {
+    path: '/auth',
+    Component: AuthLayout,
+    children: [
+      {
+        path: '/auth/login',
+        Component: Login,
+      },
+      {
+        path: '/auth/register',
+        Component: Register,
       },
     ],
   },

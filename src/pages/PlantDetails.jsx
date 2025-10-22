@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { FaStar } from 'react-icons/fa';
 import useData from '../hooks/useData';
@@ -34,9 +33,6 @@ const PlantDetails = () => {
     );
     e.target.reset();
   };
-
-  console.log(id, currentPlant);
-
   return (
     <div className="w-full lg:w-10/12 mx-auto py-13 px-4">
       {/* Details */}

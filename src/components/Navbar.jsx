@@ -79,13 +79,13 @@ const Navbar = () => {
           </ul>
           <div className="flex items-center gap-8">
             <Link
-              to="/"
+              to="/auth/login"
               className="px-5 py-2 border-2 border-green-600  font-semibold rounded hover:bg-green-600 hover:text-white transition cursor-pointer"
             >
               Login{' '}
             </Link>
             <Link
-              to="/"
+              to="/auth/register"
               className="hidden lg:flex px-5 py-2 bg-green-600 border-2 border-green-600   text-white font-semibold rounded hover:bg-green-700 hover:border-green-700 transition cursor-pointer"
             >
               Register{' '}
