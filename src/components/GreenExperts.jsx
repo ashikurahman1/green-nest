@@ -33,7 +33,7 @@ const GreenExperts = () => {
         <h2 className="text-3xl lg:text-4xl font-bold text-green-600 border-l-6 rounded pl-3 mb-8">
           Meet Our Green Experts
         </h2>
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2   xl:grid-cols-4 ">
           {experts?.map(expert => (
             <div
               key={expert?.id}

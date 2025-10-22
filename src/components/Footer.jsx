@@ -10,14 +10,19 @@ import {
 const Footer = () => {
   return (
     <>
-      <footer className="relative z-10 backgroundBg py-10">
+      <footer
+        className="relative z-10 py-10 bg-no-repeat bg-cover"
+        style={{
+          background: 'url("/images/footerBg.png"), green',
+        }}
+      >
         <div className="w-full lg:w-10/12 mx-auto p-4 text-white">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
               <div className="mb-10 w-full">
                 <Link
                   to="/"
-                  className="text-xl text-green-700 lg:text-white flex items-center gap-2 mb-5"
+                  className="text-xl text-white flex items-center gap-2 mb-5"
                 >
                   <img src={Logo} alt="" className="w-10 hidden lg:flex" />
                   <span className="text-3xl font-bold ">

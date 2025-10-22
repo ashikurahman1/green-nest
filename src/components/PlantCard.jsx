@@ -21,7 +21,7 @@ const PlantCard = ({ plant }) => {
           <span className="text-gray-600 ">({plant?.rating})</span>
         </p>
         <Link to={`/plant/${plant.plantId}`}>
-          <button className="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition cursor-pointer">
+          <button className="font-semibold mt-4 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition cursor-pointer">
             View Details
           </button>
         </Link>

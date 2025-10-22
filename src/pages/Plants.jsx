@@ -11,10 +11,15 @@ const Plants = () => {
 
   return (
     <section className="bg-gray-50">
-      <div className="py-15 bg-gradient-to-bl from-green-400 to-green-800 text-white">
+      <div
+        className="py-20 text-center bg-cover bg-no-repeat"
+        style={{ background: 'url("/public/images/imgheader.jpg")' }}
+      >
         <h2 className="text-3xl lg:text-4xl font-bold rounded text-center">
           All Plants{' '}
-          <span className="text-sm">Total plants: ({plants.length})</span>
+          <span className="text-sm text-green-600">
+            Total plants: ({plants.length})
+          </span>
         </h2>
       </div>
       <div className="w-full lg:w-10/12 mx-auto px-4 py-15">

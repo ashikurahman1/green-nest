@@ -1,5 +1,7 @@
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import Logo from '../assets/logo.png';
+import { use } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const menus = [
   { name: 'Home', path: '/', id: 1 },
@@ -19,10 +21,24 @@ const navLink = (
     ))}
   </>
 );
+
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { userLogout, user } = use(AuthContext);
+
+  const handleLogout = () => {
+    userLogout()
+      .then(result => {
+        navigate('/');
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+
   return (
-    <nav className="bg-white shadow-sm  ">
-      <div className="w-full lg:w-10/12 mx-auto p-1 px-2 lg:p-4 navbar">
+    <nav className="bg-base-200">
+      <div className="w-full lg:w-10/12 mx-auto px-3 navbar bg-white m-3 rounded-full shadow">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,37 +76,49 @@ const Navbar = () => {
           <ul className="menu menu-horizontal space-x-5">{navLink}</ul>
         </div>
         <div className="navbar-end">
-          <ul className="menu menu-horizontal z-100">
-            <li>
-              <details>
-                <summary>
-                  <img src={Logo} className="w-6" />
-                </summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Name</a>
-                  </li>
-                  <li>
-                    <a>Logout</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-          </ul>
-          <div className="flex items-center gap-8">
-            <Link
-              to="/auth/login"
-              className="px-5 py-2 border-2 border-green-600  font-semibold rounded hover:bg-green-600 hover:text-white transition cursor-pointer"
-            >
-              Login{' '}
-            </Link>
-            <Link
-              to="/auth/register"
-              className="hidden lg:flex px-5 py-2 bg-green-600 border-2 border-green-600   text-white font-semibold rounded hover:bg-green-700 hover:border-green-700 transition cursor-pointer"
-            >
-              Register{' '}
-            </Link>
-          </div>
+          {user ? (
+            <ul className="menu menu-horizontal ">
+              <li>
+                <details className="relative  bg-transparent ">
+                  <summary>
+                    <img src={user.photoURL} className="w-8 rounded-full" />
+                  </summary>
+                  <ul className="p-4 space-y-3 absolute  right-0 min-w-[200px] z-50">
+                    <p
+                      className="text-green-600 font-semibold text-2xl
+                    "
+                    >
+                      Welcome!{' '}
+                    </p>
+                    <li className="text-lg font-semibold">
+                      {user.displayName.split(' ').slice(0, 2).join(' ')}
+                    </li>
+                    <button
+                      className="mt-5 px-4 py-2 bg-red-500 rounded text-white font-semibold cursor-pointer w-full"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          ) : (
+            <div className="flex items-center gap-5">
+              <Link
+                to="/auth/login"
+                className="px-5 py-2 border-2 border-green-600  font-semibold rounded-full hover:bg-green-600 hover:text-white transition cursor-pointer"
+              >
+                Login{' '}
+              </Link>
+              <Link
+                to="/auth/register"
+                className="hidden lg:flex px-5 py-2 bg-green-600 border-2 border-green-600   text-white font-semibold rounded-full hover:bg-green-700 hover:border-green-700 transition cursor-pointer"
+              >
+                Register{' '}
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>

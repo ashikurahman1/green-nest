@@ -8,6 +8,8 @@ import Loader from '../components/Loader/Loader';
 import AuthLayout from '../pages/AuthLayout';
 import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
+import MyProfile from '../pages/MyProfile';
+import ProtectedRoutes from './ProtectedRoutes';
 
 export const router = createBrowserRouter([
   {
@@ -29,11 +31,19 @@ export const router = createBrowserRouter([
       },
       {
         path: '/plant/:id',
-        element: <PlantDetails />,
+        element: (
+          <ProtectedRoutes>
+            <PlantDetails />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: '/profile',
-        element: <p>I am Profile</p>,
+        element: (
+          <ProtectedRoutes>
+            <MyProfile />
+          </ProtectedRoutes>
+        ),
       },
     ],
   },

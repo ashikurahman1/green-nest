@@ -15,10 +15,10 @@ const TopRatedPlants = ({ topRated }) => {
             <PlantCard plant={plant} key={plant?.plantId} />
           ))}
         </div>
-        <div className="text-center py-7">
+        <div className="text-center mt-15">
           <Link
             to="/plants"
-            className="px-5 py-2 bg-green-600 font-semibold text-white hover:bg-green-700 transition rounded text-sm cursor-pointer"
+            className="px-5 py-2 bg-green-600 font-semibold text-white hover:bg-green-700 transition rounded   cursor-pointer"
           >
             See all plants
           </Link>
