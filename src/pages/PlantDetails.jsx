@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { FaStar } from 'react-icons/fa';
 import useData from '../hooks/useData';
 import Loader from '../components/Loader/Loader';
+import { toast } from 'react-toastify';
 
 const PlantDetails = () => {
   const { id } = useParams();
@@ -22,11 +23,24 @@ const PlantDetails = () => {
     careLevel,
     providerName,
   } = currentPlant;
+
+  const handleBookingConsultant = e => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.name.value;
+
+    toast.success(
+      `Hi ${name}, your consultation has been booked successfully! 📅`
+    );
+    e.target.reset();
+  };
+
   console.log(id, currentPlant);
 
   return (
     <div className="w-full lg:w-10/12 mx-auto py-13 px-4">
-      <div className="card lg:card-side bg-base-100 shadow-xl max-w-4xl mx-auto my-8">
+      {/* Details */}
+      <div className="card lg:card-side bg-base-100 shadow-xl max-w-4xl mx-auto my-8 border-t-6 border-green-600">
         <figure className="lg:w-1/2">
           <img
             src={image}
@@ -73,6 +87,53 @@ const PlantDetails = () => {
             </tr>
           </table>
         </div>
+      </div>
+      {/* Booking Consultant */}
+      <div className="shadow-xl max-w-4xl mx-auto mt-15 p-6">
+        <h4 className="text-green-700 font-semibold text-2xl text-center">
+          Book Consultation
+        </h4>
+
+        {/* Form */}
+        <form
+          onSubmit={handleBookingConsultant}
+          className="flex flex-col gap-6 py-8 max-w-xl mx-auto"
+        >
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-2 lg:gap-4">
+            <label htmlFor="name" className="min-w-[80px] text-sm font-medium">
+              Name:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              className="input input-bordered w-full focus:outline-0 focus:border-green-600"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-2 lg:gap-4">
+            <label htmlFor="email" className="min-w-[80px] text-sm font-medium">
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              className="input input-bordered w-full focus:outline-0 focus:border-green-600"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition cursor-pointer"
+          >
+            Book Now
+          </button>
+        </form>
       </div>
     </div>
   );
