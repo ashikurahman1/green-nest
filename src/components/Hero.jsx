@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 
 const Hero = () => {
   return (
-    <div className="h-[400px] lg:h-[500px]">
+    <div className="h-[300px] lg:h-[500px]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -31,15 +31,13 @@ const Hero = () => {
               backgroundImage: "url('/images/SpiderPlant.png')",
             }}
           >
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-black/70 via-black/50 to-transparent z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-green-600/50 via-green-800/70 to-transparent z-0" />
 
-            {/* Content */}
             <div className="relative z-10 text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-green-400   ">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-300   ">
                 Welcome to Plantopia
               </h1>
-              <p className="text-lg md:text-xl max-w-xl mx-auto">
+              <p className="md:text-xl max-w-xl mx-auto">
                 Breathe life into your space with our vibrant, living greens.
               </p>
             </div>
@@ -54,12 +52,10 @@ const Hero = () => {
               backgroundImage: "url('/images/PeaceLily.png')",
             }}
           >
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-black/70 via-black/50 to-transparent z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-green-600/50 via-green-800/70 to-transparent z-0" />
 
-            {/* Content */}
             <div className="relative z-10 text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-green-400   ">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-300 ">
                 Serenity in Every Leaf
               </h1>
               <p className="text-lg md:text-xl max-w-xl mx-auto">
@@ -79,12 +75,10 @@ const Hero = () => {
               backgroundImage: "url('/images/SnackPlant.jpg')",
             }}
           >
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-black/70 via-black/50 to-transparent z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-green-600/50 via-green-800/70 to-transparent z-0" />
 
-            {/* Content */}
             <div className="relative z-10 text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-green-400   ">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-300 ">
                 Bold. Strong. Evergreen.
               </h1>
               <p className="text-lg md:text-xl max-w-xl mx-auto">
@@ -103,12 +97,10 @@ const Hero = () => {
               backgroundImage: "url('/images/MonsteraDeliciosa.png')",
             }}
           >
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-bl from-black/70 via-black/50 to-transparent z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-green-600/50 via-green-800/70 to-transparent z-0" />
 
-            {/* Content */}
             <div className="relative z-10 text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-green-400   ">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-300 ">
                 Embrace the Jungle Vibes
               </h1>
               <p className="text-lg md:text-xl max-w-xl mx-auto">

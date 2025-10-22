@@ -36,3 +36,17 @@ a.active {
 .swiper-pagination-bullet-active {
   background-color: #16a34a !important;
 }
+
+.social-button {
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-button:hover {
+  color: #fde047;
+}
