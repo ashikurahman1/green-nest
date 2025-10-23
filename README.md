@@ -1,6 +1,6 @@
 # 🌿 GreenNest
 
-![GreenNest Screenshot](https://greennest-af528.web.ap/images/screenshoot.png)
+![GreenNest Screenshot](https://greensplant.netlify.app/images/screenshoot.png)
 
 **GreenNest** is a modern plant shop web application built with **React.js** and
 **Firebase Authentication**.  

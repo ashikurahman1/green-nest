@@ -3,13 +3,21 @@ import { FaStar } from 'react-icons/fa';
 import useData from '../hooks/useData';
 import Loader from '../components/Loader/Loader';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 const PlantDetails = () => {
   const { id } = useParams();
   const { plants, loading } = useData();
   const currentPlant = plants.find(plant => plant.plantId == id);
+
+  useEffect(() => {
+    if (currentPlant) {
+      document.title = currentPlant?.plantName + ' | GreenNest';
+    }
+  }, [currentPlant]);
+
   if (loading) {
-    return <p>Data Loading....</p>;
+    return <Loader />;
   }
   const {
     image,
@@ -36,7 +44,6 @@ const PlantDetails = () => {
   return (
     <div className="bg-base-200">
       <div className="w-full lg:w-10/12 mx-auto py-5 px-4 lg:px-20 ">
-        {/* Details */}
         <div className="card lg:card-side bg-base-100 shadow-xl  my-8 border-t-6 border-green-600 ">
           <figure className="lg:w-1/2">
             <img

@@ -32,6 +32,7 @@ const MyProfile = () => {
   };
   return (
     <div className="bg-neutral-50">
+      <title> My Profile | GreenNest </title>
       <div
         className="py-20 text-center bg-cover bg-no-repeat"
         style={{ background: 'url("/public/images/imgheader.jpg")' }}

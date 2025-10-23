@@ -3,10 +3,15 @@ import PlantCard from './PlantCard';
 import { Link } from 'react-router';
 import SectionHeading from './SectionHeading/SectionHeading';
 import Container from './Container/Container';
-
+import { motion } from 'framer-motion';
 const TopRatedPlants = ({ topRated }) => {
   return (
-    <section style={{ background: 'url("/images/imgheader.jpg")' }}>
+    <motion.section
+      style={{ background: 'url("/images/imgheader.jpg")' }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
       <Container>
         <SectionHeading title="Top Rated Indoor Plants" />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -23,7 +28,7 @@ const TopRatedPlants = ({ topRated }) => {
           </Link>
         </div>
       </Container>
-    </section>
+    </motion.section>
   );
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { FaTint, FaSun, FaLeaf } from 'react-icons/fa';
 import SectionHeading from './SectionHeading/SectionHeading';
 import Container from './Container/Container';
+import { motion } from 'framer-motion';
 const careTips = [
   {
     id: 1,
@@ -31,7 +32,11 @@ const careTips = [
 
 const PlantCareTips = () => {
   return (
-    <section>
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
       <Container>
         <SectionHeading title="Plant Care Tips" />
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -49,7 +54,7 @@ const PlantCareTips = () => {
           ))}
         </div>
       </Container>
-    </section>
+    </motion.section>
   );
 };
 
