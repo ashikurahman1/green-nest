@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa6';
 import { AuthContext } from '../../context/AuthContext';
 import { FcGoogle } from 'react-icons/fc';
 import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 const Register = () => {
   const { createUser, setUser, loginGoogle, updateUser } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -24,9 +25,9 @@ const Register = () => {
         updateUser({ displayName: fullName, photoURL: photoUrl })
           .then(() => {
             setUser({ ...user, displayName: fullName, photoURL: photoUrl });
-            navigate('/auth/login');
+            navigate('/');
             Swal.fire({
-              title: 'Account created successfully. Please login!',
+              title: 'Account created successfully',
               icon: 'success',
               draggable: true,
               confirmButtonColor: '#16a34a',
@@ -34,7 +35,10 @@ const Register = () => {
           })
           .catch(err => console.error(err.message));
       })
-      .catch(err => console.error(err.message));
+      .catch(err => {
+        console.error(err.message);
+        toast.error(err.message);
+      });
   };
 
   const handleGoogleLogin = () => {

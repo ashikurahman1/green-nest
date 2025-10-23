@@ -30,7 +30,18 @@ const Login = () => {
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(err => {
-        console.error(err.message);
+        if (
+          err.code === 'auth/invalid-credential' ||
+          err.code === 'auth/wrong-password'
+        ) {
+          Swal.fire({
+            title: 'Invalid email or password',
+            icon: 'error',
+            draggable: true,
+            confirmButtonColor: 'red',
+          });
+        }
+        console.error(err.code);
       });
   };
 
@@ -47,6 +58,7 @@ const Login = () => {
       })
       .catch(err => {
         console.error(err);
+        alert(err.message);
       });
   };
 

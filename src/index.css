@@ -21,6 +21,7 @@ a.active {
 .social-button {
   margin-right: 0.75rem;
   display: flex;
+  padding: 5px;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -29,5 +30,6 @@ a.active {
 }
 
 .social-button:hover {
-  color: #fde047;
+  color: green;
+  background-color: white;
 }

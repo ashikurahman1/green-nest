@@ -1,11 +1,6 @@
 import { Link } from 'react-router';
 import Logo from '../assets/logo-white.png';
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaXTwitter,
-} from 'react-icons/fa6';
+import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -37,45 +32,78 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-
-            <LinkGroup header="Resources">
-              <NavLink link="/" label="Plant Encyclopedia" />
-              <NavLink link="/" label="Care Guides" />
-              <NavLink link="/" label="Green Tips & Blogs" />
-              <NavLink link="/" label="Gardening Tools" />
-            </LinkGroup>
-
-            <LinkGroup header="Company">
-              <NavLink link="/" label="About GreenNest" />
-              <NavLink link="/" label="Contact & Support" />
-              <NavLink link="/" label="Community Stories" />
-              <NavLink link="/" label="Privacy & Terms" />
-            </LinkGroup>
-
-            <LinkGroup header="Quick Links">
-              <NavLink link="/" label="Help & FAQ" />
-              <NavLink link="/" label="Our Services" />
-              <NavLink link="/" label="Meet the Team" />
-              <NavLink link="/" label="Download App" />
-            </LinkGroup>
+            <div className="flex flex-col md:flex-row gap-6 justify-between w-full px-4 sm:w-2/3 lg:w-6/12">
+              <div>
+                <h3 className="mb-3 md:mb-6 text-lg font-semibold">
+                  Resources
+                </h3>
+                <ul className="menu space-y-3">
+                  <Link to="/" className="hover:text-green-200">
+                    Plant Encyclopedia
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Care Guides
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Green Tips & Blogs
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Gardening Tools
+                  </Link>
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-3 md:mb-6 text-lg font-semibold">Company</h3>
+                <ul className="menu space-y-3">
+                  <Link to="/" className="hover:text-green-200">
+                    About GreenNest
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Contact & Support
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Community Stories
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Privacy & Terms
+                  </Link>
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-3 md:mb-6 text-lg font-semibold">
+                  Quick Links
+                </h3>
+                <ul className="menu space-y-3">
+                  <Link to="/" className="hover:text-green-200">
+                    Help & FAQ
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Our Services
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Meet the Team
+                  </Link>
+                  <Link to="/" className="hover:text-green-200">
+                    Download App
+                  </Link>
+                </ul>
+              </div>
+            </div>
 
             <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
-              <div className="mb-10 w-full">
-                <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
+              <div className="mt-10 w-full">
+                <h4 className="mb-9 text-lg font-semibold text-white">
                   Follow Us On
                 </h4>
                 <div className="mb-6 flex items-center">
                   <a className="social-button">
-                    <FaFacebook size={25} />
-                  </a>
-                  <a className="social-button">
                     <FaInstagram size={25} />
                   </a>
                   <a className="social-button">
-                    <FaXTwitter size={25} />
+                    <FaFacebook size={25} />
                   </a>
                   <a className="social-button">
-                    <FaLinkedin size={25} />
+                    <FaPinterest size={25} />
                   </a>
                 </div>
               </div>
@@ -149,31 +177,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-const LinkGroup = ({ children, header }) => {
-  return (
-    <>
-      <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
-        <div className="mb-10 w-full">
-          <h4 className="mb-9 text-lg font-semibold text-dark dark:text-white">
-            {header}
-          </h4>
-          <ul className="space-y-3">{children}</ul>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const NavLink = ({ link, label }) => {
-  return (
-    <li>
-      <a
-        href={link}
-        className="inline-block text-base leading-loose text-body-color hover:text-green-500 dark:text-dark-6"
-      >
-        {label}
-      </a>
-    </li>
-  );
-};
