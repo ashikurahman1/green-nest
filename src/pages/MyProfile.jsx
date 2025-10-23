@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Loader from '../components/Loader/Loader';
+import Button from '../components/Button';
 
 const MyProfile = () => {
   const { user, updateUser, setUser, loading } = use(AuthContext);
@@ -23,7 +24,7 @@ const MyProfile = () => {
       });
   };
   return (
-    <div className="bg-base-200">
+    <div className="bg-neutral-50">
       <div
         className="py-20 text-center bg-cover bg-no-repeat"
         style={{ background: 'url("/public/images/imgheader.jpg")' }}
@@ -69,7 +70,7 @@ const MyProfile = () => {
               />
             </div>
             {/* Photo URL */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 mb-4">
               <label for="photoUrl" className=" font-medium">
                 Photo Url:
               </label>
@@ -83,12 +84,7 @@ const MyProfile = () => {
                 className="input input-bordered w-full focus:outline-0 focus:border-green-600"
               />
             </div>
-            <button
-              type="submit"
-              className="px-5 py-2 bg-green-600 rounded text-white font-semibold hover:bg-green-700 transition cursor-pointer mt-5"
-            >
-              Update Profile
-            </button>
+            <Button btnText="Update Profile" />
           </form>
         </div>
       </div>

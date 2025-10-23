@@ -3,6 +3,7 @@ import Logo from '../assets/logo.png';
 import { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
+import Button from './Button';
 
 const menus = [
   { name: 'Home', path: '/', id: 1 },
@@ -102,12 +103,7 @@ const Navbar = () => {
                         ? user.displayName.split(' ').slice(0, 2).join(' ')
                         : 'User'}
                     </li>
-                    <button
-                      className="mt-5 px-4 py-2 bg-green-600 rounded text-white font-semibold cursor-pointer w-full"
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </button>
+                    <Button btnText="Logout" onClick={handleLogout} />
                   </ul>
                 </details>
               </li>

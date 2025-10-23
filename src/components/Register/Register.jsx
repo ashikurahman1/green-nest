@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { FcGoogle } from 'react-icons/fc';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import Button from '../Button';
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -83,15 +84,12 @@ const Register = () => {
       });
   };
   return (
-    <div className="w-full p-4 ">
-      <div className="bg-base-100 shadow-xl rounded-xl p-7 md:p-15 md:px-20 border-t-6 border-green-600">
-        <h2 className="font-semibold text-center text-5xl text-green-600 mb-4">
+    <div className="bg-base-100 m-3 rounded-md">
+      <div className="p-10">
+        <h2 className="text-center text-3xl text-green-600 mb-5">
           Create your account
         </h2>
-        <form
-          onSubmit={handleUserRegister}
-          className="flex flex-col gap-3 py-2 "
-        >
+        <form onSubmit={handleUserRegister} className="flex flex-col gap-2">
           {/* Name */}
           <div className="flex flex-col gap-2">
             <label className=" font-medium">Full Name:</label>
@@ -149,18 +147,10 @@ const Register = () => {
             <p className="text-red-500 text-sm">{passwordErr}</p>
           </div>
 
-          {/* Submit */}
-          <button
-            type="submit"
-            className="mt-5 w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition font-semibold cursor-pointer"
-          >
-            Sign up
-          </button>
+          <Button btnText=" Sign up" />
 
-          {/* Divider */}
           <div className="divider">OR</div>
 
-          {/* Google Login */}
           <button
             type="button"
             onClick={handleGoogleLogin}
