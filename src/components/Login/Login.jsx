@@ -95,7 +95,7 @@ const Login = () => {
   return (
     <div className="w-full p-4 ">
       <div className="bg-base-100 shadow-xl rounded-xl p-7 md:p-15 md:px-20 border-t-6 border-green-600">
-        <h2 className="font-semibold text-center text-5xl text-green-600 mb-4">
+        <h2 className="font-semibold text-center text-4xl text-green-600 mb-4">
           Login
         </h2>
         <form

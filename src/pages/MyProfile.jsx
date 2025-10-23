@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Loader from '../components/Loader/Loader';
 import Button from '../components/Button';
+import Swal from 'sweetalert2';
 
 const MyProfile = () => {
   const { user, updateUser, setUser, loading } = use(AuthContext);
@@ -18,6 +19,12 @@ const MyProfile = () => {
     updateUser({ displayName, photoURL })
       .then(() => {
         setUser({ ...user, displayName, photoURL });
+        Swal.fire({
+          title: 'Profile updated successfully',
+          icon: 'success',
+          draggable: true,
+          confirmButtonColor: '#16a34a',
+        });
       })
       .catch(err => {
         console.log(err.message);

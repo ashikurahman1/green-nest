@@ -8,11 +8,12 @@ import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
 import MyProfile from '../pages/MyProfile';
 import ProtectedRoutes from './ProtectedRoutes';
-
+import Error404 from '../pages/Error404';
 export const router = createBrowserRouter([
   {
     path: '/',
     Component: Root,
+    errorElement: <Error404 />,
     children: [
       {
         index: true,

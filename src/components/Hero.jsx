@@ -31,7 +31,7 @@ const Hero = () => {
               backgroundImage: "url('/images/SpiderPlant.png')",
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-bl from-green-600/50 via-green-800/70 to-transparent z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-green-600  to-green-800 z-0 opacity-90" />
 
             <div className="relative z-10 text-white">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-300   ">
@@ -52,7 +52,7 @@ const Hero = () => {
               backgroundImage: "url('/images/PeaceLily.png')",
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-bl from-green-600/50 via-green-800/70 to-transparent z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-green-600  to-green-800 z-0 opacity-90" />
 
             <div className="relative z-10 text-white">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-300 ">
@@ -75,7 +75,7 @@ const Hero = () => {
               backgroundImage: "url('/images/SnackPlant.jpg')",
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-bl from-green-600/50 via-green-800/70 to-transparent z-0" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-green-600  to-green-800 z-0 opacity-90" />
 
             <div className="relative z-10 text-white">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 text-yellow-300 ">

@@ -1,10 +1,11 @@
 import { Link, NavLink, useNavigate } from 'react-router';
 import Logo from '../assets/logo.png';
-import { use } from 'react';
+import { use, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 import Button from './Button';
-
+import { LuMenu } from 'react-icons/lu';
+import { MdClose } from 'react-icons/md';
 const menus = [
   { name: 'Home', path: '/', id: 1 },
   { name: 'Plants', path: '/plants', id: 2 },
@@ -27,7 +28,7 @@ const navLink = (
 const Navbar = () => {
   const navigate = useNavigate();
   const { user, userLogout, loading } = use(AuthContext);
-
+  const [mobileMenu, setMobileMenu] = useState(false);
   const handleLogout = () => {
     userLogout()
       .then(() => {
@@ -43,30 +44,18 @@ const Navbar = () => {
     <nav className="">
       <div className="w-full lg:w-10/12 mx-auto px-3 navbar bg-white m-3 rounded-full shadow-md">
         <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {' '}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="3"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{' '}
-              </svg>
-            </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-md text-[16px] dropdown-content bg-green-100 rounded-box z-100 mt-3 w-62 p-5 space-y-6 shadow"
+          <div className="dropdown mx-3">
+            <button
+              onClick={() => setMobileMenu(!mobileMenu)}
+              className="lg:hidden"
             >
-              {navLink}
-            </ul>
+              {mobileMenu ? <MdClose size={30} /> : <LuMenu size={30} />}
+            </button>
+            {mobileMenu && (
+              <ul className="menu menu-md text-[16px] dropdown-content rounded-box z-100 mt-6 w-62 p-5 space-y-6 shadow bg-neutral-100">
+                {navLink}
+              </ul>
+            )}
           </div>
           <Link to="/" className="text-xl flex items-center gap-2">
             <img src={Logo} alt="" className="w-12 hidden md:flex " />
