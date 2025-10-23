@@ -8,6 +8,7 @@ import EcoDecor from '../components/EcoDecor';
 import useData from '../hooks/useData';
 import Loader from '../components/Loader/Loader';
 import Skeleton from '../components/Skeleton/Skeleton';
+import PlantOfTheWeek from '../components/PlantOfTheWeek';
 
 const HomeLayout = () => {
   const { plants } = useData();
@@ -23,6 +24,7 @@ const HomeLayout = () => {
       <PlantCareTips />
       <GreenExperts />
       <EcoDecor />
+      <PlantOfTheWeek />
     </div>
   );
 };

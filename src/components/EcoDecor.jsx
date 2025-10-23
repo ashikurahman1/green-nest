@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeading from './SectionHeading/SectionHeading';
 
 const decorIdeas = [
   {
@@ -34,9 +35,8 @@ const EcoDecor = () => {
   return (
     <section className="py-15 px-4 bg-gray-50">
       <div className="w-full lg:w-10/12 mx-auto">
-        <h2 className="text-3xl lg:text-4xl font-bold text-green-600 border-l-6 rounded pl-3 mb-8">
-          Eco Decor Ideas
-        </h2>
+        <SectionHeading title="Eco Decor Ideas" />
+
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {decorIdeas.map(({ id, image, title, description }) => (
             <div

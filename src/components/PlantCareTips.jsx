@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaTint, FaSun, FaLeaf } from 'react-icons/fa';
+import SectionHeading from './SectionHeading/SectionHeading';
 const careTips = [
   {
     id: 1,
@@ -31,9 +32,7 @@ const PlantCareTips = () => {
   return (
     <section className="py-15 px-4 bg-gray-50">
       <div className="w-full lg:w-10/12 mx-auto">
-        <h2 className="text-3xl lg:text-4xl font-bold text-green-600 border-l-6 rounded pl-3 mb-8">
-          Plant Care Tips
-        </h2>
+        <SectionHeading title="Plant Care Tips" />
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {careTips.map(tip => (
             <div
