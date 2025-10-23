@@ -87,7 +87,7 @@ const MyProfile = () => {
               type="submit"
               className="px-5 py-2 bg-green-600 rounded text-white font-semibold hover:bg-green-700 transition cursor-pointer mt-5"
             >
-              Update
+              Update Profile
             </button>
           </form>
         </div>

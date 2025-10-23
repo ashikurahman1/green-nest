@@ -7,6 +7,7 @@ import GreenExperts from '../components/GreenExperts';
 import EcoDecor from '../components/EcoDecor';
 import useData from '../hooks/useData';
 import Loader from '../components/Loader/Loader';
+import Skeleton from '../components/Skeleton/Skeleton';
 
 const HomeLayout = () => {
   const { plants } = useData();

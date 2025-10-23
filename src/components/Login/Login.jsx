@@ -104,9 +104,7 @@ const Login = () => {
         >
           {/* Email */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="email" className=" font-medium">
-              Email:
-            </label>
+            <label className=" font-medium">Email:</label>
             <input
               ref={emailRef}
               type="email"
@@ -120,9 +118,7 @@ const Login = () => {
 
           {/* Password */}
           <div className="flex flex-col gap-2 relative">
-            <label htmlFor="password" className=" font-medium">
-              Password:
-            </label>
+            <label className=" font-medium">Password:</label>
             <input
               type={showPassword ? 'text' : 'password'}
               name="password"

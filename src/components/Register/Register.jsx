@@ -7,18 +7,36 @@ import { FcGoogle } from 'react-icons/fc';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 const Register = () => {
-  const { createUser, setUser, loginGoogle, updateUser } = use(AuthContext);
-  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { createUser, setUser, loginGoogle, updateUser } = use(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+
+  const handlePasswordValidation = e => {
+    const paswordvalue = e.target.value;
+    setPassword(paswordvalue);
+    if (paswordvalue.length < 6) {
+      setPasswordErr('Password must be at least 6 character');
+    } else if (!/[A-Z]/.test(paswordvalue)) {
+      setPasswordErr('Password must have an Uppercase letter');
+    } else if (!/[a-z]/.test(paswordvalue)) {
+      setPasswordErr('Password must have an lowercase letter');
+    } else {
+      setPasswordErr('');
+    }
+  };
 
   const handleUserRegister = e => {
     e.preventDefault();
+    if (passwordErr) {
+      toast.error('Please add a valid password');
+      return;
+    }
     const fullName = e.target.name.value;
     const photoUrl = e.target.photoUrl.value;
     const email = e.target.email.value;
-    const password = e.target.password.value;
-
     createUser(email, password)
       .then(result => {
         const user = result.user;
@@ -33,24 +51,37 @@ const Register = () => {
               confirmButtonColor: '#16a34a',
             });
           })
-          .catch(err => console.error(err.message));
+          .catch(err => {
+            console.error(err.message);
+          });
       })
       .catch(err => {
         console.error(err.message);
-        toast.error(err.message);
+        if (err.code === 'auth/email-already-in-use') {
+          toast.error('Email already exist');
+        } else if (err.code === 'auth/invalid-email') {
+          toast.error('Invalid email address');
+        } else {
+          toast.error(err.message);
+        }
       });
   };
-
   const handleGoogleLogin = () => {
     loginGoogle()
       .then(() => {
+        Swal.fire({
+          title: 'Login Success!',
+          icon: 'success',
+          draggable: true,
+          confirmButtonColor: '#16a34a',
+        });
         navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(err => {
         console.error(err);
+        alert(err.message);
       });
   };
-
   return (
     <div className="w-full p-4 ">
       <div className="bg-base-100 shadow-xl rounded-xl p-7 md:p-15 md:px-20 border-t-6 border-green-600">
@@ -63,9 +94,7 @@ const Register = () => {
         >
           {/* Name */}
           <div className="flex flex-col gap-2">
-            <label for="name" className=" font-medium">
-              Full Name:
-            </label>
+            <label className=" font-medium">Full Name:</label>
             <input
               type="text"
               name="name"
@@ -76,9 +105,7 @@ const Register = () => {
           </div>
           {/* Email */}
           <div className="flex flex-col gap-2">
-            <label for="email" className=" font-medium">
-              Email:
-            </label>
+            <label className=" font-medium">Email:</label>
             <input
               type="email"
               name="email"
@@ -90,9 +117,7 @@ const Register = () => {
           </div>
           {/* Photo URL */}
           <div className="flex flex-col gap-2">
-            <label for="photoUrl" className=" font-medium">
-              Photo Url:
-            </label>
+            <label className=" font-medium">Photo Url:</label>
             <input
               type="url"
               name="photoUrl"
@@ -104,10 +129,10 @@ const Register = () => {
 
           {/* Password */}
           <div className="flex flex-col gap-2 relative">
-            <label for="password" className=" font-medium">
-              Password:
-            </label>
+            <label className=" font-medium">Password:</label>
             <input
+              value={password}
+              onChange={handlePasswordValidation}
               type={showPassword ? 'text' : 'password'}
               name="password"
               id="password"
@@ -121,6 +146,7 @@ const Register = () => {
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
+            <p className="text-red-500 text-sm">{passwordErr}</p>
           </div>
 
           {/* Submit */}

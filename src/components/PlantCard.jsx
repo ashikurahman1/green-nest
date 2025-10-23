@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
+import useData from '../hooks/useData';
+import Skeleton from './Skeleton/Skeleton';
 
 const PlantCard = ({ plant }) => {
+  const { loading } = useData();
+  if (loading) {
+    return <Skeleton />;
+  }
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200 hover:-translate-y-1.5">
       <img
