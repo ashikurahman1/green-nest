@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaTint, FaSun, FaLeaf } from 'react-icons/fa';
 import SectionHeading from './SectionHeading/SectionHeading';
+import Container from './Container/Container';
 const careTips = [
   {
     id: 1,
@@ -30,8 +31,8 @@ const careTips = [
 
 const PlantCareTips = () => {
   return (
-    <section className="py-15 px-4 bg-gray-50">
-      <div className="w-full lg:w-10/12 mx-auto">
+    <section>
+      <Container>
         <SectionHeading title="Plant Care Tips" />
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {careTips.map(tip => (
@@ -47,7 +48,7 @@ const PlantCareTips = () => {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

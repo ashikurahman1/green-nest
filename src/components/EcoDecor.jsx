@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionHeading from './SectionHeading/SectionHeading';
+import Container from './Container/Container';
 
 const decorIdeas = [
   {
@@ -33,8 +34,8 @@ const decorIdeas = [
 ];
 const EcoDecor = () => {
   return (
-    <section className="py-15 px-4 bg-gray-50">
-      <div className="w-full lg:w-10/12 mx-auto">
+    <section>
+      <Container>
         <SectionHeading title="Eco Decor Ideas" />
 
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
@@ -60,7 +61,7 @@ const EcoDecor = () => {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

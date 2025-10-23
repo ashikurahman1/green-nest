@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionHeading from './SectionHeading/SectionHeading';
+import Container from './Container/Container';
 
 const PlantOfTheWeek = () => {
   const plant = {
@@ -11,11 +12,11 @@ const PlantOfTheWeek = () => {
       'Did you know? Ancient Egyptians called Aloe Vera the ‘plant of immortality’.',
   };
   return (
-    <section className="pb-20 px-4 bg-gray-50">
-      <div className="w-full lg:w-10/12 mx-auto">
+    <section style={{ background: 'url("/images/imgheader.jpg")' }}>
+      <Container>
         <SectionHeading title="Top Rated Indoor Plants" />
 
-        <div className="w-full space-y-4">
+        <div className="w-full space-y-3 text-center">
           <img
             src={plant.image}
             alt={plant.name}
@@ -27,7 +28,7 @@ const PlantOfTheWeek = () => {
           <p>{plant.description}</p>
           <p>{plant.funFact}</p>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

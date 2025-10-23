@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionHeading from './SectionHeading/SectionHeading';
+import Container from './Container/Container';
 
 const experts = [
   {
@@ -29,14 +30,14 @@ const experts = [
 ];
 const GreenExperts = () => {
   return (
-    <section className="py-15 px-4 bg-gray-50">
-      <div className="w-full lg:w-10/12 mx-auto">
+    <section style={{ background: 'url("/images/imgheader.jpg")' }}>
+      <Container>
         <SectionHeading title="Meet Our Green Experts" />
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2   xl:grid-cols-4 ">
           {experts?.map(expert => (
             <div
               key={expert?.id}
-              className=" border-t-8  border-green-500 rounded-lg shadow-lg hover:shadow-xl transition text-center p-6"
+              className=" border-t-8  border-green-500 rounded-lg shadow-lg hover:shadow-xl transition text-center p-6 animate-pulse bg-white"
             >
               {' '}
               <img
@@ -52,7 +53,7 @@ const GreenExperts = () => {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
