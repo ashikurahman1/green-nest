@@ -8,7 +8,10 @@ import 'swiper/css/pagination';
 
 const Hero = () => {
   return (
-    <div className="h-[300px] lg:h-[500px]" data-aos="fade-up-right">
+    <div
+      className="h-[350px] md:h-[400px] lg:h-[550px] mt-23 mb-10 lg:max-w-10/12 mx-auto rounded-lg overflow-hidden shadow-lg"
+      data-aos="fade-up-right"
+    >
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
