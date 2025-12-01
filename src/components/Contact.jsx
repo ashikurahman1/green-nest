@@ -60,7 +60,7 @@ export default function ContactUs() {
               <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
                 {/* Leaf icon */}
                 <svg
-                  className="w-6 h-6 text-green-600"
+                  className="w-6 h-6 "
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ export default function ContactUs() {
                 <h2 className="text-2xl font-semibold text-green-800">
                   Contact Greennest
                 </h2>
-                <p className="mt-1 text-sm text-green-600">
+                <p className="mt-1  ">
                   Questions, orders or plant care tips? We'd love to hear from
                   you.
                 </p>
@@ -101,12 +101,8 @@ export default function ContactUs() {
                   ></path>
                 </svg>
                 <div>
-                  <div className="text-sm text-green-700 font-medium">
-                    Email
-                  </div>
-                  <div className="text-sm text-green-600">
-                    hello@greennest.com
-                  </div>
+                  <div className=" text-green-700 font-medium">Email</div>
+                  <div className=" ">hello@greennest.com</div>
                 </div>
               </div>
 
@@ -125,17 +121,13 @@ export default function ContactUs() {
                   ></path>
                 </svg>
                 <div>
-                  <div className="text-sm text-green-700 font-medium">
-                    Phone
-                  </div>
-                  <div className="text-sm text-green-600">
-                    +1 (555) 123-4567
-                  </div>
+                  <div className=" text-green-700 font-medium">Phone</div>
+                  <div className=" ">+1 (555) 123-4567</div>
                 </div>
               </div>
 
               <div className="pt-4 border-t border-green-50">
-                <p className="text-sm text-green-600">
+                <p className=" ">
                   Our support is available Monday — Friday, 9am — 6pm. We
                   usually reply within 24 hours.
                 </p>
@@ -144,12 +136,10 @@ export default function ContactUs() {
 
             <div className="mt-6">
               <div className="rounded-lg overflow-hidden bg-green-50 border border-green-100 p-4">
-                <div className="text-sm text-green-700 font-medium">
+                <div className=" text-green-700 font-medium">
                   Visit our store
                 </div>
-                <div className="text-xs text-green-600 mt-1">
-                  42 Plant Lane, Green City
-                </div>
+                <div className="mt-1">42 Plant Lane, Green City</div>
               </div>
             </div>
           </main>

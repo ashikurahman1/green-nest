@@ -9,8 +9,10 @@ export default function AboutUs() {
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header Section */}
         <header className="text-center space-y-4">
-          <h1 className="text-4xl font-bold text-green-800">About Greennest</h1>
-          <p className="text-green-600 max-w-2xl mx-auto text-sm">
+          <h1 className="text-4xl font-bold text-green-800 mt-8">
+            About Greennest
+          </h1>
+          <p className=" max-w-2xl mx-auto ">
             At Greennest, we believe every home deserves a touch of nature. Our
             mission is to make plant care simple, enjoyable, and accessible to
             everyone.
@@ -20,7 +22,7 @@ export default function AboutUs() {
         {/* Story Section */}
         <section className="bg-white rounded-2xl shadow-md border border-green-100 p-8 lg:p-10">
           <h2 className="text-2xl font-semibold text-green-800">Our Story</h2>
-          <p className="mt-3 text-green-700 text-sm leading-relaxed">
+          <p className="mt-3  leading-relaxed">
             Greennest started with a simple idea: helping people bring life into
             their living spaces. What began as a small collection of handpicked
             indoor plants has grown into a trusted platform loved by plant
@@ -36,7 +38,7 @@ export default function AboutUs() {
             <h3 className="text-xl font-semibold text-green-800">
               Our Mission
             </h3>
-            <p className="mt-2 text-green-700 text-sm leading-relaxed">
+            <p className="mt-2  leading-relaxed">
               To inspire greener lifestyles through quality plants, simple care
               tips, and sustainable products. We aim to guide beginners and
               support plant lovers at every step of their journey.
@@ -47,7 +49,7 @@ export default function AboutUs() {
             <h3 className="text-xl font-semibold text-green-800">
               Why Choose Us?
             </h3>
-            <ul className="mt-4 text-green-700 text-sm space-y-3">
+            <ul className="mt-4 text-green-700  space-y-3">
               <li className="flex gap-2 items-start">
                 <span className="w-2 h-2 mt-2 bg-green-600 rounded-full"></span>
                 Healthy and carefully curated plants
@@ -71,7 +73,7 @@ export default function AboutUs() {
         {/* Vision Section */}
         <section className="bg-white rounded-2xl shadow-md border border-green-100 p-8 lg:p-10">
           <h2 className="text-2xl font-semibold text-green-800">Our Vision</h2>
-          <p className="mt-3 text-green-700 text-sm leading-relaxed max-w-3xl">
+          <p className="mt-3   leading-relaxed max-w-3xl">
             We dream of a world where every space—homes, offices,
             communities—has a greener, fresher touch. Greennest is committed to
             promoting sustainable living by providing eco-friendly products,
@@ -82,12 +84,12 @@ export default function AboutUs() {
 
         {/* CTA Section */}
         <div className="text-center mt-10">
-          <p className="text-green-700 text-sm">
+          <p className="text-green-700 ">
             Want to know more or need help choosing a plant?
           </p>
           <a
             href="/contact"
-            className="inline-block mt-4 px-6 py-2 rounded-lg bg-green-600 text-white text-sm font-medium shadow hover:bg-green-700"
+            className="inline-block mt-4 px-6 py-2 rounded-lg bg-green-600 text-white  font-medium shadow hover:bg-green-700"
           >
             Contact Us
           </a>

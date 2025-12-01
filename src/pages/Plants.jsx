@@ -33,7 +33,7 @@ const Plants = () => {
           className="py-20 text-center bg-cover bg-no-repeat"
           style={{ background: 'url("/public/images/imgheader.jpg")' }}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold rounded text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold rounded text-center text-green-800">
             All Plants{' '}
             <span className="text-sm text-green-600">
               Total plants: ({plants.length})
