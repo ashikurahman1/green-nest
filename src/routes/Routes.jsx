@@ -9,6 +9,9 @@ import Register from '../components/Register/Register';
 import MyProfile from '../pages/MyProfile';
 import ProtectedRoutes from './ProtectedRoutes';
 import Error404 from '../pages/Error404';
+import AboutUs from '../pages/AboutUs';
+import Contact from '../components/Contact';
+import PrivacyPolicy from '../components/PrivacyPolicy';
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -26,6 +29,18 @@ export const router = createBrowserRouter([
       {
         path: '/plants',
         element: <Plants />,
+      },
+      {
+        path: '/about-us',
+        element: <AboutUs />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
+      {
+        path: '/privacy-policy',
+        element: <PrivacyPolicy />,
       },
       {
         path: '/plant/:id',

@@ -1,6 +1,12 @@
 import { Link } from 'react-router';
 import Logo from '../assets/logo-white.png';
-import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa6';
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaPinterest,
+} from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -55,16 +61,16 @@ const Footer = () => {
               <div>
                 <h3 className="mb-3 md:mb-6 text-lg font-semibold">Company</h3>
                 <ul className="menu space-y-3">
-                  <Link to="/" className="hover:text-green-200">
+                  <Link to="/about-us" className="hover:text-green-200">
                     About GreenNest
                   </Link>
-                  <Link to="/" className="hover:text-green-200">
+                  <Link to="/contact" className="hover:text-green-200">
                     Contact & Support
                   </Link>
                   <Link to="/" className="hover:text-green-200">
                     Community Stories
                   </Link>
-                  <Link to="/" className="hover:text-green-200">
+                  <Link to="/privacy-policy" className="hover:text-green-200">
                     Privacy & Terms
                   </Link>
                 </ul>
@@ -96,14 +102,26 @@ const Footer = () => {
                   Follow Us On
                 </h4>
                 <div className="mb-6 flex items-center">
-                  <a className="social-button">
-                    <FaInstagram size={25} />
+                  <a
+                    target="_blank"
+                    href="http://linkedin.com/in/ashikur-dev"
+                    className="social-button"
+                  >
+                    <FaLinkedin size={25} />
                   </a>
-                  <a className="social-button">
+                  <a
+                    target="_blank"
+                    href="https://facebook.com/ashikurrdev"
+                    className="social-button"
+                  >
                     <FaFacebook size={25} />
                   </a>
-                  <a className="social-button">
-                    <FaPinterest size={25} />
+                  <a
+                    target="_blank"
+                    href="https://github.com/ashikurahman1"
+                    className="social-button"
+                  >
+                    <FaGithub size={25} />
                   </a>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import Button from './Button';
 import { LuMenu } from 'react-icons/lu';
 import { MdClose } from 'react-icons/md';
+import Loader from './Loader/Loader';
 const menus = [
   { name: 'Home', path: '/', id: 1 },
   { name: 'All Plants', path: '/plants', id: 2 },
@@ -40,17 +41,17 @@ const Navbar = () => {
         console.error(err);
       });
   };
-
+  if (loading) return <Loader />;
   return (
     <nav className="">
-      <div className="w-full lg:w-10/12 mx-auto px-3 navbar bg-white   rounded-full shadow-md fixed top-0 z-50 left-0 right-0">
-        <div className="navbar-start">
+      <div className="w-full lg:w-10/12 mx-auto px-3 navbar bg-white   rounded-full shadow-md fixed top-0 z-50 left-0 right-0  ">
+        <div className="navbar-start ">
           <div className="dropdown mx-3">
             <button
               onClick={() => setMobileMenu(!mobileMenu)}
               className="lg:hidden"
             >
-              {mobileMenu ? <MdClose size={30} /> : <LuMenu size={30} />}
+              {mobileMenu ? <MdClose size={25} /> : <LuMenu size={25} />}
             </button>
             {mobileMenu && (
               <ul className="menu menu-md text-[16px] dropdown-content rounded-box z-100 mt-6 w-62 p-5 space-y-6 shadow bg-neutral-100">
@@ -69,9 +70,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal space-x-5">{navLink}</ul>
         </div>
         <div className="navbar-end">
-          {loading ? (
-            <div className="px-4 py-2">Loading...</div>
-          ) : user ? (
+          {user ? (
             <ul className="menu menu-horizontal ">
               <li>
                 <details className="relative  bg-transparent ">
@@ -93,8 +92,20 @@ const Navbar = () => {
                         ? user.displayName.split(' ').slice(0, 2).join(' ')
                         : 'User'}
                     </li>
-
-                    <Button btnText="Logout" onClick={handleLogout} />
+                    <div className="flex flex-col ">
+                      <Link
+                        className="btn bg-green-500 hover:bg-green-600 text-white"
+                        to={'/profile'}
+                      >
+                        My Profile
+                      </Link>
+                      <button
+                        className="btn btn-warning mt-2"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </button>
+                    </div>
                   </ul>
                 </details>
               </li>
