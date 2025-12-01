@@ -29,11 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/plant/:id',
-        element: (
-          <ProtectedRoutes>
-            <PlantDetails />
-          </ProtectedRoutes>
-        ),
+        element: <PlantDetails />,
       },
       {
         path: '/profile',

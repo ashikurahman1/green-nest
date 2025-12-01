@@ -14,7 +14,7 @@ const TopRatedPlants = ({ topRated }) => {
     >
       <Container>
         <SectionHeading title="Top Rated Indoor Plants" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="px-4 lg:px-0 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {topRated.map(plant => (
             <PlantCard plant={plant} key={plant?.plantId} />
           ))}

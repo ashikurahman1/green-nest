@@ -33,7 +33,7 @@ const GreenExperts = () => {
     <section style={{ background: 'url("/images/imgheader.jpg")' }}>
       <Container>
         <SectionHeading title="Meet Our Green Experts" />
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2   xl:grid-cols-4 ">
+        <div className="px-4 lg:px-0 grid gap-8 grid-cols-1 sm:grid-cols-2   xl:grid-cols-4 ">
           {experts?.map(expert => (
             <div
               key={expert?.id}

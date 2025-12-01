@@ -8,8 +8,9 @@ import { LuMenu } from 'react-icons/lu';
 import { MdClose } from 'react-icons/md';
 const menus = [
   { name: 'Home', path: '/', id: 1 },
-  { name: 'Plants', path: '/plants', id: 2 },
-  { name: 'My Profile', path: '/profile', id: 3 },
+  { name: 'All Plants', path: '/plants', id: 2 },
+  { name: 'About us', path: '/about-us', id: 3 },
+  { name: 'Contact', path: '/contact', id: 3 },
 ];
 const navLink = (
   <>
@@ -42,7 +43,7 @@ const Navbar = () => {
 
   return (
     <nav className="">
-      <div className="w-full lg:w-10/12 mx-auto px-3 navbar bg-white mt-2 rounded-full shadow-md fixed top-0 z-50 left-0 right-0">
+      <div className="w-full lg:w-10/12 mx-auto px-3 navbar bg-white   rounded-full shadow-md fixed top-0 z-50 left-0 right-0">
         <div className="navbar-start">
           <div className="dropdown mx-3">
             <button
@@ -92,6 +93,7 @@ const Navbar = () => {
                         ? user.displayName.split(' ').slice(0, 2).join(' ')
                         : 'User'}
                     </li>
+
                     <Button btnText="Logout" onClick={handleLogout} />
                   </ul>
                 </details>
@@ -105,12 +107,12 @@ const Navbar = () => {
               >
                 Login{' '}
               </Link>
-              <Link
+              {/* <Link
                 to="/auth/register"
                 className="hidden lg:flex px-5 py-2 bg-green-600 border-2 border-green-600   text-white font-semibold rounded-full hover:bg-green-700 hover:border-green-700 transition cursor-pointer"
               >
                 Register{' '}
-              </Link>
+              </Link> */}
             </div>
           )}
         </div>

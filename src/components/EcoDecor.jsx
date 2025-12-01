@@ -38,7 +38,7 @@ const EcoDecor = () => {
       <Container>
         <SectionHeading title="Eco Decor Ideas" />
 
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="px-4 lg:px-0 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {decorIdeas.map(({ id, image, title, description }) => (
             <div
               key={id}

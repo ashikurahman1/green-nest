@@ -39,7 +39,7 @@ const PlantCareTips = () => {
     >
       <Container>
         <SectionHeading title="Plant Care Tips" />
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <div className="px-4 lg:px-0 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {careTips.map(tip => (
             <div
               key={tip.id}

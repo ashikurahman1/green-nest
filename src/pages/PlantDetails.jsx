@@ -42,7 +42,7 @@ const PlantDetails = () => {
     e.target.reset();
   };
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-200 mt-20">
       <div className="w-full lg:w-10/12 mx-auto py-5 px-4 lg:px-20 ">
         <div className="card lg:card-side bg-base-100 shadow-xl  my-8 border-t-6 border-green-600 ">
           <figure className="lg:w-1/2">

@@ -31,7 +31,7 @@ const MyProfile = () => {
       });
   };
   return (
-    <div className="bg-neutral-50">
+    <div className="bg-neutral-50 mt-20">
       <title> My Profile | GreenNest </title>
       <div
         className="py-20 text-center bg-cover bg-no-repeat"

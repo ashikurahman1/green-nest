@@ -170,15 +170,6 @@ const Login = () => {
             Register
           </Link>
         </p>
-
-        <div className="flex flex-col items-center justify-center">
-          <button
-            className="btn btn-neutral mt-8"
-            onClick={() => navigate('/')}
-          >
-            <FaArrowCircleLeft /> <span>Go Home</span>
-          </button>
-        </div>
       </div>
     </div>
   );

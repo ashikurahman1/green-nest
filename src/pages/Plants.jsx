@@ -12,7 +12,7 @@ const Plants = () => {
   return (
     <div>
       <title>Plants | GreenNest</title>
-      <section className="bg-gray-50">
+      <section className="bg-gray-50 mt-20">
         <div
           className="py-20 text-center bg-cover bg-no-repeat"
           style={{ background: 'url("/public/images/imgheader.jpg")' }}

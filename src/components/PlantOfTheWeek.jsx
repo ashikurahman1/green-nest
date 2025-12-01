@@ -16,7 +16,7 @@ const PlantOfTheWeek = () => {
       <Container>
         <SectionHeading title="Top Rated Indoor Plants" />
 
-        <div className="w-full space-y-3 text-center">
+        <div className="px-4 lg:px-0 w-full space-y-3 text-center">
           <img
             src={plant.image}
             alt={plant.name}
