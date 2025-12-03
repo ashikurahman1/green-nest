@@ -1,12 +1,9 @@
 import React from 'react';
 
-// AboutUs.jsx
-// Tailwind-styled About page inspired by the color and layout sense of Greennest.
-
 export default function AboutUs() {
   return (
     <div className="bg-gradient-to-b from-green-50 via-white to-white py-20 px-4 sm:px-6 lg:px-8 min-h-screen">
-      <div className="max-w-6xl mx-auto space-y-16">
+      <div className="w-full lg:w-10/12 mx-auto   space-y-16">
         {/* Header Section */}
         <header className="text-center space-y-4">
           <h1 className="text-4xl font-bold text-green-800 mt-8">
@@ -73,7 +70,10 @@ export default function AboutUs() {
         {/* Vision Section */}
         <section className="bg-white rounded-2xl shadow-md border border-green-100 p-8 lg:p-10">
           <h2 className="text-2xl font-semibold text-green-800">Our Vision</h2>
-          <p className="mt-3   leading-relaxed max-w-3xl">
+          <p
+            className="mt-3 
+            leading-relaxed max-w-3xl"
+          >
             We dream of a world where every space—homes, offices,
             communities—has a greener, fresher touch. Greennest is committed to
             promoting sustainable living by providing eco-friendly products,

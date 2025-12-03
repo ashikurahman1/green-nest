@@ -1,59 +1,7 @@
-import React, { useState } from 'react';
-
-// ContactUs.jsx
-// Tailwind CSS-based contact page component inspired by the greennest site color sense.
-// Usage: drop this component into a React app that already has Tailwind configured.
-
 export default function ContactUs() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [status, setStatus] = useState({
-    submitting: false,
-    success: null,
-    error: null,
-  });
-
-  function handleChange(e) {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setStatus({ submitting: true, success: null, error: null });
-
-    // Example: send to Formspree (replace YOUR_FORMSPREE_URL with yours) or
-    // implement your own endpoint at /api/contact
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-
-      if (!res.ok) throw new Error('Failed to send message');
-
-      setStatus({
-        submitting: false,
-        success: 'Message sent successfully!',
-        error: null,
-      });
-      setForm({ name: '', email: '', subject: '', message: '' });
-    } catch (err) {
-      setStatus({
-        submitting: false,
-        success: null,
-        error: err.message || 'Something went wrong',
-      });
-    }
-  }
-
   return (
     <div className="  bg-gradient-to-b from-green-50 via-white to-white py-30 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full lg:w-10/12 mx-auto  ">
         <div className="">
           <main className="rounded-2xl bg-white shadow-md p-8 ">
             <div className="flex items-center gap-4">
